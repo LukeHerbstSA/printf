@@ -1,5 +1,6 @@
 #include <stdarg.h>
 #include <string.h>
+#include <stdio.h>
 #include "main.h"
 
 /**
@@ -13,11 +14,9 @@ int _printf(const char *format, ...)
 	va_list printer;
 	int i;
 	char letter;
-	char *string_arg;
 	int num_chars;
 
 	va_start(printer, format); /* last defined parameter is format but surely number of args should be passed here? va_start might have to take *format as a second arg*/
-	j = 0;
 	num_chars = 0;
 	for (i = 0; format[i] != '\0', i++) /* this will pass args into a new loop j everytime it comes across a type specifier */
 	{
@@ -34,8 +33,19 @@ int _printf(const char *format, ...)
 
 }
 
-int *type_handler(*type, printer)
+/**
+	* type_handler - int function
+	* Description: putchars every element of passed additional args
+	* @type: passed pointer to type specifier
+	* @printer: passed va_list to iterate over variadic parameters in _printf
+	*
+	*/
+
+int type_handler(*type, printer)
 {
+	char *string_arg;
+	int j;
+
 	if (*type == 'c')
   		string_arg = &(va_arg(printer, int)); /* va_arg takes int because single chars are promoted to int, but string_arg can still point to this 'char' via implicit conversion (must be tested)*/
 	if (*type == 's')
