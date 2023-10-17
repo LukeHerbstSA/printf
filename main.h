@@ -2,10 +2,6 @@
 #define MAIN_H
 
 int _printf(const char *format, ...);
-typedef struct types_funcs
-{
-	char *type;
-	char *()()
-}
+int *type_handler(*type);
 
 #endif
