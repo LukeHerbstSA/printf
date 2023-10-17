@@ -1,12 +1,15 @@
 #ifndef MAIN_H
 #define MAIN_H
+#include <stdarg.h>
+#include <stdio.h>
+#include <string.h>
 
 int _printf(const char *format, ...);
-int type_handler(char type, va_list printer);
+int type_chooser(char type, va_list printer);
 int c_handler(va_list printer);
 int s_handler(va_list printer);
 /**
-	* type_ptr - struct used to access the relevant ptr for relevant function for that type
+	* struct type_ptr - used to access ptr for relevant function for that format
 	* @type: passed char that will act as key to access func_ptr
 	* @func_ptr: func ptr to any one of the functions in type_handlers.c
 	*/

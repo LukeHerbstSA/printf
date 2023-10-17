@@ -16,7 +16,7 @@ int c_handler(va_list printer)
 	return (1);
 }
 
-/*
+/**
 	* s_handler - int func
 	* Description: putchars string arg and returns len of string
 	* @printer: passed va_list arg
