@@ -50,9 +50,9 @@ int type_chooser(char type, va_list printer)
 		{NULL, NULL}
 	};
 
-	while (func_fetcher[i].type != NULL)
+	while (func_fetcher[i].func_ptr != NULL)
 	{
-		if (*func_fetcher[i].type == type)
+		if (*(func_fetcher[i].type) == type)
 		{
 			func_caller = func_fetcher[i].func_ptr;
 			break;
