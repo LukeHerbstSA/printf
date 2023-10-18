@@ -12,9 +12,11 @@ int _printf(const char *format, ...)
 	int i;
 	int res_check;
 	int num_chars;
+	int format_chars;
 
 	num_chars = 0;
 	res_check = 0;
+	format_chars = 0;
 	va_start(printer, format);
 	if (format == NULL)
 		return (0);
@@ -33,8 +35,9 @@ int _printf(const char *format, ...)
 		}
 		else
 			putchar(format[i]);
+			format_chars += 1;
 	}
-	num_chars += i;
+	num_chars += format_chars;
 	va_end(printer);
 	return (num_chars);
 }
@@ -69,7 +72,7 @@ int type_chooser(char type, va_list printer)
 	if (func_caller != NULL)
 	{
 		len = func_caller(printer);
-		return (len - 1); /* minue one for the extra increment in _printf */
+		return (len); /* minue one for the extra increment in _printf */
 	}
 	return (0);
 }
