@@ -22,6 +22,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			num_chars += type_chooser(format[i + 1], printer);
+			i++;
 		}
 		else
 			putchar(format[i]);
@@ -45,14 +46,13 @@ int type_chooser(char type, va_list printer)
 	int len;
 	int i;
 	func_ptrs func_fetcher[] = {
-		{"c", c_handler},
-		{"s", s_handler},
-		{NULL, NULL}
+		{'c', c_handler},
+		{'s', s_handler}
 	};
-
-	while (func_fetcher[i].func_ptr != NULL)
+	i = 0;
+	while (i < 2)
 	{
-		if (*(func_fetcher[i].type) == type)
+		if (func_fetcher[i].type == type)
 		{
 			func_caller = func_fetcher[i].func_ptr;
 			break;

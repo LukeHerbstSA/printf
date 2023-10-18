@@ -11,7 +11,7 @@
         */
 typedef struct type_ptr
 {
-        char *type;
+        char type;
         int (*func_ptr)(va_list printer);
 } func_ptrs;
 int _printf(const char *format, ...);
