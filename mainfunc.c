@@ -25,11 +25,13 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == '\0')
 				return (0);
 			res_check = type_chooser(format[i + 1], printer);
-			if (res_check != 0)
+			if (res_check > 0)
 			{
 				num_chars += res_check;
 				i++;
 			}
+			else
+				return (0);
 		}
 		else
 		{

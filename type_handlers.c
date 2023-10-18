@@ -27,7 +27,10 @@ int s_handler(va_list printer)
 	char *string_arg;
 
 	string_arg = va_arg(printer, char *);
-	for (i = 0; string_arg[i] != '\0'; i++)
-		putchar(string_arg[i]);
+	if (*string_arg != 0)
+		for (i = 0; string_arg[i] != '\0'; i++)
+			putchar(string_arg[i]);
+	else
+		return (-1);
 	return (i);
 }
