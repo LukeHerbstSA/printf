@@ -1,6 +1,10 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include <limits.h>
+#include <stdio.h>
+#include "main.h"
+
 /**
 	* struct type_ptr - used to access ptr for relevant function for that format
 	* @type: passed char that will act as key to access func_ptr
