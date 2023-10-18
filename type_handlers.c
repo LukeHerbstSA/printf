@@ -31,4 +31,3 @@ int s_handler(va_list printer)
 		putchar(string_arg[i]);
 	return (i);
 }
-#endif
