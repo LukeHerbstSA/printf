@@ -1,9 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <limits.h>
+#include <string.h>
 #include <stdio.h>
-#include "main.h"
+#include <stdarg.h>
 
 /**
 	* struct type_ptr - used to access ptr for relevant function for that format
