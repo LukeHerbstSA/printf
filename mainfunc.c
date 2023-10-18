@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "main.h"
+#include "type_handlers.c"
 
 /**
 	* _printf - int func
@@ -13,7 +14,6 @@ int _printf(const char *format, ...)
 {
 	va_list printer;
 	int i;
-	char letter;
 	int num_chars;
 
 	if (format == NULL)
@@ -24,14 +24,14 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			num_chars += type_handler(format[i + 1], printer);
+			num_chars += type_chooser(format[i + 1], printer);
 		}
 		else
 			putchar(format[i]);
 	}
 	num_chars += i;
 	va_end(printer);
-	return (i);
+	return (num_chars);
 }
 
 /**
@@ -42,19 +42,26 @@ int _printf(const char *format, ...)
 	* Return: num chars printed (-1 to account for incrementing in _printf func)
 	*/
 
-int type_handler(char type, va_list printer)
+int type_chooser(char type, va_list printer)
 {
-	char *string_arg;
-	char char_arg;
+	int (*func_caller)(va_list);
 	int len;
-	int j;
+	int i; /* use this function to iterate over struct func_ptrs that checks if format spec matches any formats the dictionary, returning a pointer to one of the functions in type_handlers.c */
+	funct_ptrs func_fetcher[] = {
+		{"c", c_handler},
+		{"s", s_handler},
+		{NULL, NULL}
+	};
 
-	if (type == 'c')
-  		string_arg = (char *)va_arg(printer, int); /* va_arg takes int because single chars are promoted to int, but string_arg can still point to this 'char' via implicit conversion (must be tested)*/
-	if (type == 's')
- 		string_arg = va_arg(printer, char *);
-	for (i = 0; string)
-	for (j = 0; j < strlen(string_arg); j++)
-		putchar(string_arg[j]); /* while j < length of string string_arg, putchar that element*/
-	return (j - 1); /* here we return the number of chars printed (minus one here because var i will increment one anyways if the string is one char, e.g when type_handler is done being called, i increments even though it never printed, loop j printed)*/
+	while (func_fetcher[i].type != NULL)
+	{
+		if (func_fetcher[i].type == type)
+		{
+			func_caller = func_fetcher[i].func_ptr;
+			break;
+		}
+		i++;
+	}
+	len = func_caller(va_list printer);
+	return (len - 1); /* minue one to account for the extra increment in the _printf function*/
 }
