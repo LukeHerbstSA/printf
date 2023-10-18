@@ -10,18 +10,26 @@ int _printf(const char *format, ...)
 {
 	va_list printer;
 	int i;
+	int res_check;
 	int num_chars;
 
+	num_chars = 0;
+	res_check = 0;
+	va_start(printer, format);
 	if (format == NULL)
 		return (0);
-	num_chars = 0;
-	va_start(printer, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			num_chars += type_chooser(format[i + 1], printer);
-			i++;
+			if (format[i + 1] == '\0')
+				return (0);
+			res_check = type_chooser(format[i+ 1], printer)
+			if (res_check != 0)
+			{
+				numchars += res_check;
+				i++;
+			}
 		}
 		else
 			putchar(format[i]);
@@ -58,6 +66,9 @@ int type_chooser(char type, va_list printer)
 		}
 		i++;
 	}
-	len = func_caller(printer);
-	return (len - 1); /* minue one for the extra increment in _printf */
+	if (func_caller == NULL)
+		return (0);
+	else
+		len = func_caller(printer);
+		return (len - 1); /* minue one for the extra increment in _printf */
 }
