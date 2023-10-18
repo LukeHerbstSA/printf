@@ -1,4 +1,6 @@
 #include "main.h"
+#ifndef TYPE_HANDLERS_C
+#define TYPE_HANDLERS_C
 /**
 	* c_handler - int func
 	* Description: putchars a char and returns the len as one
@@ -30,3 +32,4 @@ int s_handler(va_list printer)
 		putchar(string_arg[i]);
 	return (i);
 }
+#endif
