@@ -1,4 +1,5 @@
 #include "main.h"
+#include "type_handlers.c"
 
 /**
 	* _printf - int func
@@ -13,7 +14,7 @@ int _printf(const char *format, ...)
 	int num_chars;
 
 	if (format == NULL)
-		return (1);
+		return (0);
 	num_chars = 0;
 	va_start(printer, format);
 	for (i = 0; format[i] != '\0'; i++)

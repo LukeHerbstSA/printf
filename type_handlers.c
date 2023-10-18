@@ -1,5 +1,3 @@
-#include "main.h"
-
 /**
 	* c_handler - int func
 	* Description: putchars a char and returns the len as one
