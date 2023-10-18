@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (0);
-			res_check = type_chooser(format[i+ 1], printer);
+			res_check = type_chooser(format[i + 1], printer);
 			if (res_check != 0)
 			{
 				num_chars += res_check;
@@ -66,9 +66,10 @@ int type_chooser(char type, va_list printer)
 		}
 		i++;
 	}
-	if (func_caller == NULL)
-		return (0);
-	else
+	if (func_caller != NULL)
+	{
 		len = func_caller(printer);
 		return (len - 1); /* minue one for the extra increment in _printf */
+	}
+	return (0);
 }
