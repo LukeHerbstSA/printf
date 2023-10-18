@@ -12,11 +12,9 @@ int _printf(const char *format, ...)
 	int i;
 	int res_check;
 	int num_chars;
-	int format_chars;
 
 	num_chars = 0;
 	res_check = 0;
-	format_chars = 0;
 	va_start(printer, format);
 	if (format == NULL)
 		return (0);
@@ -34,10 +32,11 @@ int _printf(const char *format, ...)
 			}
 		}
 		else
+		{
 			putchar(format[i]);
-			format_chars += 1;
+			num_chars += 1;
+		}
 	}
-	num_chars += format_chars;
 	va_end(printer);
 	return (num_chars);
 }
