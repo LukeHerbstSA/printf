@@ -1,5 +1,4 @@
 #include "main.h"
-#include "type_handlers.c"
 
 /**
 	* _printf - int func
