@@ -8,7 +8,7 @@
 	*/
 int _printf(const char *format, ...)
 {
-	va_list printer;
+	va_list printer
 	int i;
 	int num_chars;
 
