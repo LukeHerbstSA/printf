@@ -24,10 +24,10 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 				return (0);
-			res_check = type_chooser(format[i+ 1], printer)
+			res_check = type_chooser(format[i+ 1], printer);
 			if (res_check != 0)
 			{
-				numchars += res_check;
+				num_chars += res_check;
 				i++;
 			}
 		}
