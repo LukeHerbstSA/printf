@@ -17,13 +17,13 @@ int _printf(const char *format, ...)
 	res_check = 0;
 	va_start(printer, format);
 	if (format == NULL)
-		return (0);
+		return (-1);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '\0')
-				return (0);
+			if (format[i + 1] == '\0' || format[i + 1] == ' '])
+				return (-1);
 			res_check = type_chooser(format[i+ 1], printer);
 			if (res_check != 0)
 			{
