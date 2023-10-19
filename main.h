@@ -1,10 +1,5 @@
 #ifndef MAIN_H
 #define MAIN_H
-#include <stdarg.h>
-
-<<<<<<< HEAD
-int _putchar(char c);
-=======
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
@@ -22,11 +17,7 @@ typedef struct type_ptr
 } func_ptrs;
 int c_handler(va_list printer);
 int s_handler(va_list printer);
->>>>>>> 14b27341cb084c27c1f668d7508c5c85a34d3eff
 int _printf(const char *format, ...);
-int _print_char(va_list args);
-int _print_int(va_list args);
-int _print_str(va_list args);
-int (*_selec_func(char c))(va_list);
+int type_chooser(char type, va_list printer);
 
 #endif
