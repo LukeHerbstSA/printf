@@ -33,7 +33,9 @@ int _printf(const char *format, ...)
 			else if (res_check == 0)
 				i++;
 			else
-				return (0);
+			{
+				putchar('%');
+			}
 		}
 		else
 		{
