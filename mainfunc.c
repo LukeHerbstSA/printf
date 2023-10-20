@@ -31,7 +31,7 @@ int _printf(const char *format, ...)
 				i++;
 			}
 			else
-				return (0);
+				return (-1);
 		}
 		else
 		{
@@ -56,24 +56,32 @@ int type_chooser(char type, va_list printer)
 	int (*func_caller)(va_list);
 	int len;
 	int i;
+	int check;
 	func_ptrs func_fetcher[] = {
 		{'c', c_handler},
 		{'s', s_handler}
 	};
 	i = 0;
+	check = 1;
 	while (i < 2)
 	{
 		if (func_fetcher[i].type == type)
 		{
 			func_caller = func_fetcher[i].func_ptr;
+			check = 0;
 			break;
 		}
 		i++;
 	}
-	if (func_caller != NULL)
+	if (check == 0)
 	{
 		len = func_caller(printer);
 		return (len); /* minue one for the extra increment in _printf */
 	}
-	return (0);
+	if (type == '%')
+	{
+		putchar('%');
+		return (1);
+	}
+	return (-1);
 }
