@@ -30,6 +30,8 @@ int _printf(const char *format, ...)
 				num_chars += res_check;
 				i++;
 			}
+			else if (res_check == 0)
+				i++;
 			else
 				return (0);
 		}
