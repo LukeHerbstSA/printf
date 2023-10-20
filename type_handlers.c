@@ -1,4 +1,7 @@
-#include "main.h"
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include <stdarg.h>
 
 /**
 	* c_handler - int func

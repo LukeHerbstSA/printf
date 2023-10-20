@@ -17,6 +17,8 @@ typedef struct type_ptr
 	int (*func_ptr)(va_list printer);
 } func_ptrs;
 int _printf(const char *format, ...);
+int c_handler(va_list printer);
+int s_handler(va_list printer);
 int type_chooser(char type, va_list printer);
 
 #endif
