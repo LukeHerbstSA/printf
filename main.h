@@ -3,6 +3,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 /**
 	* struct type_ptr - used to access ptr for relevant function for that format

@@ -25,12 +25,19 @@ int s_handler(va_list printer)
 {
 	int i;
 	char *string_arg;
+	char error[] = "(null)";
 
 	string_arg = va_arg(printer, char *);
-	if (*string_arg != 0)
+	if (string_arg != NULL)
+	{
 		for (i = 0; string_arg[i] != '\0'; i++)
 			putchar(string_arg[i]);
+	}
 	else
-		return (-1);
+	{
+		for (i = 0; error[i] != '\0'; i++)
+			putchar(error[i]);
+		return (i);
+	}
 	return (i);
 }
