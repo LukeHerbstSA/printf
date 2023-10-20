@@ -35,6 +35,7 @@ int _printf(const char *format, ...)
 			else
 			{
 				putchar('%');
+				num_chars++;
 			}
 		}
 		else
