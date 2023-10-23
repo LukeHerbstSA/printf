@@ -1,2 +1,2 @@
 Modular Printf (Only handles strings and chars)
-Can have types added by adding to type_handlers file and adding the function name into the dictionary in the entry point mainfunc in the second function type selector.
+Types can be added via building the handler in the file "type_handlers.c" and adding that function name to the dictionary at the beginning of type choosers in the "mainfunc.c" file.
